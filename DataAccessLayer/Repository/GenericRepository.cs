@@ -8,37 +8,31 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repository
 {
-    public interface GenericRepository<T> : IGenericDal<T> where T : class
+    public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        public new void Delete(T t)
+        public void Delete(T t)
         {
             using var c = new Context();
             c.Remove(t);
             c.SaveChanges();
         }
-        public new List<T> GetList()
+
+        public List<T> GetList()
         {
             using var c = new Context();
             return c.Set<T>().ToList();
-
         }
 
-        public new void Insert(T t)
+        public void Insert(T t)
         {
             using var c = new Context();
             c.Add(t);
-
         }
 
-        public new void Update(T t)
+        public void Update(T t)
         {
             using var c = new Context();
             c.Update(t);
-
         }
-
-
-
-
     }
 }
