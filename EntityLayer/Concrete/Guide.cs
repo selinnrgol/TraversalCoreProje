@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Guide
+    public class Guide// acentaya bağlı çalışanlar
     {
         [Key]
         public int GuideID { get; set; }
